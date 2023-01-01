@@ -1,21 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import moment from "moment";
 
-function BookingForm({ availableTimes, dispatch }) {
-    const [resDate, setResDate] = useState();
+function BookingForm({ availableTimes, dispatch, submitForm }) {
+    const [resDate, setResDate] = useState(
+        moment(new Date()).format("YYYY-MM-DD")
+    );
     const [resTime, setResTime] = useState();
     const [numGuests, setNumGuests] = useState(2);
     const [occasion, setOccasion] = useState("Anniversary");
 
+    useEffect(() => {
+        dispatch({
+            type: "date_change",
+            payload: new Date(resDate),
+        });
+    }, [resDate]);
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        submitForm({
+            resDate,
+            resTime,
+            numGuests,
+            occasion,
+        });
+    };
+
     return (
-        <form>
+        <form onSubmit={submitHandler}>
             <label htmlFor="res-date">Choose date</label>
             <input
                 type="date"
                 id="res-date"
                 value={resDate}
-                onChange={(e) =>
-                    dispatch({ type: "date_change", payload: e.target.value })
-                }
+                onChange={(e) => setResDate(e.target.value)}
             />
             <label htmlFor="res-time">Choose time</label>
             <select
@@ -24,7 +42,7 @@ function BookingForm({ availableTimes, dispatch }) {
                 onChange={(e) => setResTime(e.target.value)}
             >
                 {availableTimes.map((t, i) => (
-                    <option key={i}>{t}:00</option>
+                    <option key={i}>{t}</option>
                 ))}
             </select>
             <label htmlFor="guests">Number of guests</label>

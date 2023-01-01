@@ -1,7 +1,7 @@
 import React from "react";
 import BookingForm from "../components/BookingForm";
 
-function Reservation({ availableTimes, dispatch }) {
+function Reservation({ availableTimes, dispatch, submitForm }) {
     return (
         <section
             className="container"
@@ -12,6 +12,7 @@ function Reservation({ availableTimes, dispatch }) {
             <BookingForm
                 availableTimes={availableTimes}
                 dispatch={dispatch}
+                submitForm={submitForm}
             />
         </section>
     );

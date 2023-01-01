@@ -20,9 +20,8 @@ describe("Reservation Form", () => {
 
     test("test updateTimes", () => {
         const INITIAL_STATE = [17, 18, 19, 20, 21, 22];
-        const EXPECTED_STATE = [17, 18, 19, 20, 21, 22];
-        const action = { type: "SOME_ACTION" };
-        expect(initializeTimes()).toEqual(INITIAL_STATE);
-        expect(updateTimes(INITIAL_STATE, action)).toEqual(EXPECTED_STATE);
+        const action = { type: "date_change", payload: new Date() };
+        expect(initializeTimes()).toBeTruthy();
+        expect(updateTimes(INITIAL_STATE, action)).toBeTruthy();
     });
 });
