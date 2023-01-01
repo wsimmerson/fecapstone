@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import About from "../pages/About";
@@ -7,9 +7,24 @@ import OrderOnline from "../pages/OrderOnline";
 import Menu from "../pages/Menu";
 import Reservation from "../pages/Reservation";
 
+const updateTimes = (state, action) => {
+    console.log(state);
+    return state;
+};
+
+const initializeTimes = () => {
+    return [17, 18, 19, 20, 21, 22];
+};
+
 function Main() {
+    const [availableTimes, dispatch] = useReducer(
+        updateTimes,
+        initializeTimes,
+        initializeTimes
+    );
+
     return (
-        <main>
+        <main className="">
             <Routes>
                 <Route
                     path="/"
@@ -33,7 +48,12 @@ function Main() {
                 />
                 <Route
                     path="/reservation"
-                    element={<Reservation />}
+                    element={
+                        <Reservation
+                            availableTimes={availableTimes}
+                            dispatch={dispatch}
+                        />
+                    }
                 />
             </Routes>
         </main>
@@ -41,3 +61,4 @@ function Main() {
 }
 
 export default Main;
+export { updateTimes, initializeTimes };

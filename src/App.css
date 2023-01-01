@@ -12,6 +12,7 @@
 
 body {
   font-family: 'Karla', sans-serif;
+  width: 100%;
 }
 
 
@@ -48,6 +49,7 @@ a:hover {
 header {
   background-color: var(--primary-dark);
   height: 350px;
+  margin-bottom: 4rem;
 }
 
 header h1 {
@@ -134,53 +136,26 @@ nav ul a:hover {
   text-decoration-thickness: 0.1rem;
 }
 
-section {
+
+main  {
+  margin-top: 6rem !important;
+  margin-bottom: 6rem;
   display: flex;
-  gap: 2rem 1rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  flex-direction: row;
-}
-
-article {
-  flex:1;
-}
-
-article img {
-  max-width: 100%;
-}
-
-article ul {
-  list-style: none;
-}
-
-main article {
-  border: 1px solid var(--secondary-three);
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-figure {
-  margin: 0;
-}
-
-label {
-  font-weight: bold;
-  display: block;
-}
-
-input, select{
-  width: 80%;
-  display: block;
-  padding: .5rem 1rem;
-  line-height: 1.5rem;
-  box-sizing: border-box;
 }
 
 .container {
+  display:flex;
   margin: 0 auto;
 }
 
+.home {
+  display: flex;
+  justify-content: space-between;
+}
+
+.specials {
+  display: flex;
+}
 
 .btn {
   margin-top: 1rem;
@@ -188,7 +163,7 @@ input, select{
   border: 1px solid var(--primary-light);
   background-color: var(--primary-light);;
   border-radius: 5px;
-  width: 80%;
+  width: fit-content;
   font-size: 1.25rem;
   display: block;
   color: var(--secondary-four);
@@ -204,44 +179,6 @@ input, select{
   text-decoration: none;
 }
 
-#hero {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url('../public/assets/restaurant_inside.jpg');
-  background-size: cover;
-  background-position: 75%;
-  color: white;
-  min-height: 200px;
-  text-align: center;;
-}
-
-#hero p {
-  font-size: 2rem;
-  margin:0;
-  text-shadow: 2px 2px 4px var(--secondary-four);
-}
-
-.cta {
-  display: inline-block;
-  color: rgba(255, 255, 255, 0.9);
-  width: 200px;
-  font-weight: bold;
-  font-size: 1.5rem;
-  padding: 8px;
-  border: 3px solid #fff;
-  text-align: center;
-  outline: none;
-  text-decoration: none;
-  margin: 1rem;
-}
-
-.cta:hover {
-  color:#fff;
-  background: var(--primary-dark);
-  border: 3px solid var(--primary-dark);
-}
-
-.heading-shadow {
-  text-shadow: 1px 1px 4px var(--secondary-four);
-}
 
 footer {
   background-color: var(--secondary-three);
@@ -265,43 +202,17 @@ footer p {
   padding-top: 1rem;;
 }
 
-.row {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding-bottom: 1rem;
-}
-
-.column {
-  flex-basis: 50%;
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-}
-
-.column figure {
-  padding: 0px 12px;
-
-}
-
-
-.videowrap {
-position: relative;
-padding-bottom: 56.25%; /* 16:9 */
-padding-top: 1rem;
-height: 0;
-}
-.videowrap iframe {
-position: absolute;
-margin-top: 2rem;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-}
-
-.menu-price{
+label {
+  font-weight: bold;
   display: block;
-  font-size: 1rem;
+}
+
+input, select{
+  width: 80%;
+  display: block;
+  padding: .5rem 1rem;
+  line-height: 1.5rem;
+  box-sizing: border-box;
 }
 
 @media (max-width: 800px) {
@@ -313,9 +224,11 @@ height: 100%;
     flex-wrap: wrap;
     justify-content: center;
   }
-  section {
-      flex-direction: column;
+
+  .home {
+    flex-direction: column;
   }
+
 
   .row {
       flex-direction: column;
@@ -326,7 +239,7 @@ height: 100%;
       width: 100%;
   }
 
-  #button{
+  .btn{
       width: 100%;
   }
 }
