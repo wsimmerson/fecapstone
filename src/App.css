@@ -140,15 +140,15 @@ input, select{
   box-sizing: border-box;
 }
 
-#button {
+#btn {
   padding: .5rem 1rem;
-  border: 1px solid var(--primary-dark);
-  background-color: var(--primary-dark);;
+  border: 1px solid var(--primary-light);
+  background-color: var(--primary-light);;
   border-radius: 5px;
   width: 80%;
   font-size: 1.25rem;
   display: block;
-  color: #fff;
+  color: var(--secondary-four);
   line-height: 25px;
 }
 
@@ -253,6 +253,13 @@ height: 100%;
 }
 
 @media (max-width: 800px) {
+  nav {
+    flex-direction: column;
+  }
+  nav > ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   section {
       flex-direction: column;
   }
