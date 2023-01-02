@@ -41,7 +41,12 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
                 formik.handleSubmit();
             }}
         >
-            <label htmlFor="name">Your Name</label>
+            <label
+                htmlFor="name"
+                aria-controls="name"
+            >
+                Your Name
+            </label>
             <input
                 type="text"
                 id="name"
@@ -49,12 +54,19 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
                 value={formik.values.name}
                 {...formik.getFieldProps("name")}
                 onChange={(e) => formik.setFieldValue("name", e.target.value)}
+                aria-required
+                aria-invalid={formik.errors.name && formik.touched.name}
             />
             {formik.touched.name && formik.errors.name ? (
                 <div className="error">{formik.errors.name}</div>
             ) : null}
 
-            <label htmlFor="res-date">Choose date</label>
+            <label
+                htmlFor="res-date"
+                aria-controls="res-date"
+            >
+                Choose date
+            </label>
             <input
                 type="date"
                 id="res-date"
@@ -64,12 +76,19 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
                 onChange={(e) =>
                     formik.setFieldValue("resDate", e.target.value)
                 }
+                aria-required
+                aria-invalid={formik.errors.resDate && formik.touched.resDate}
             />
             {formik.touched.resDate && formik.errors.resDate ? (
                 <div className="error">{formik.errors.resDate}</div>
             ) : null}
 
-            <label htmlFor="resTime">Choose time</label>
+            <label
+                htmlFor="resTime"
+                aria-controls="res-time"
+            >
+                Choose time
+            </label>
             <select
                 id="resTime"
                 name="resTime"
@@ -78,6 +97,8 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
                 onChange={(e) =>
                     formik.setFieldValue("resTime", e.target.value)
                 }
+                aria-required
+                aria-invalid={formik.errors.resTime && formik.touched.resTime}
             >
                 <option value="0">Select Reservation Time</option>
                 {availableTimes.map((t, i) => (
@@ -88,7 +109,12 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
                 <div className="error">{formik.errors.resTime}</div>
             ) : null}
 
-            <label htmlFor="guests">Number of guests</label>
+            <label
+                htmlFor="guests"
+                aria-controls="guests"
+            >
+                Number of guests
+            </label>
             <input
                 type="number"
                 placeholder="1"
@@ -101,12 +127,21 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
                 onChange={(e) =>
                     formik.setFieldValue("numGuests", e.target.value)
                 }
+                aria-required
+                aria-invalid={
+                    formik.errors.numGuests && formik.touched.numGuests
+                }
             />
             {formik.touched.numGuests && formik.errors.numGuests ? (
                 <div className="error">{formik.errors.numGuests}</div>
             ) : null}
 
-            <label htmlFor="occasion">Occasion</label>
+            <label
+                htmlFor="occasion"
+                aria-controls="occasion"
+            >
+                Occasion
+            </label>
             <select
                 id="occasion"
                 name="occasion"
@@ -115,6 +150,8 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
                 onChange={(e) =>
                     formik.setFieldValue("occasion", e.target.value)
                 }
+                aria-required
+                aria-invalid={formik.errors.occasion && formik.touched.occasion}
             >
                 <option>Birthday</option>
                 <option>Anniversary</option>
