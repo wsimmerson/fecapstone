@@ -215,6 +215,11 @@ input, select{
   box-sizing: border-box;
 }
 
+.error {
+  color: red;
+  padding: 0.3rem 0;
+}
+
 @media (max-width: 800px) {
   nav {
     flex-direction: column;
