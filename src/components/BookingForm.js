@@ -69,9 +69,9 @@ function BookingForm({ availableTimes, dispatch, submitForm }) {
                 <div className="error">{formik.errors.resDate}</div>
             ) : null}
 
-            <label htmlFor="res-time">Choose time</label>
+            <label htmlFor="resTime">Choose time</label>
             <select
-                id="res-time "
+                id="resTime"
                 name="resTime"
                 value={formik.values.resTime}
                 {...formik.getFieldProps("resTime")}
